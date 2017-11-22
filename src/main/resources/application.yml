@@ -1,0 +1,16 @@
+server:
+  port: 8031
+spring:
+  application:
+    name: microservice-hystrix-turbine
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peach:peach123456@peer1:8761/eureka/,http://peach:peach123456@peer2:8762/eureka/
+  instance:
+    prefer-ip-address: true #标识将自己的IP注册到Eureka server，如果不配置该属性或者设置成false，标识将改机器所在操作系统的hostname注册到Eureka
+turbine:
+  app-config: microservice-comsumer1, microservice-comsumer2
+  cluster-name-expression: "'default'"
+
+
